@@ -15,11 +15,7 @@ const handler = NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   debug: true,
-  events: {
-    async error(message) {
-      console.error("NextAuth event error:", message);
-    },
-  },
+  // Events removed to satisfy TypeScript during build on Vercel
 });
 
 export { handler as GET, handler as POST };
