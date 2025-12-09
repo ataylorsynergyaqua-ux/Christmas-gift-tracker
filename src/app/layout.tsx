@@ -1,7 +1,7 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import { ServiceWorkerProvider } from "./Components/ServiceWorkerProvider";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ServiceWorkerProvider />
-        {children}
+        {/* All client-only stuff (like SessionProvider) is inside Providers */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
